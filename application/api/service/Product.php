@@ -16,7 +16,14 @@ class Product
     public function getDetail($id)
     {
         $product = new ProductModel();
-        $result = $product->with(['img','productCategory'])->where('p_num', '=', $id)->find();
+        $result = $product->with(['img', 'img.img', 'productCategory'])
+//            ->with(['productCategory.img' => function ($query) {
+//                $query->order_by('order desc');
+//            }])
+            ->with(['productCategory.img'])
+            ->with(['productCategory.img.img'])
+            ->where('p_num', '=', $id)
+            ->find();
         return $result;
     }
 }

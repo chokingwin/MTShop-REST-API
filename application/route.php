@@ -17,7 +17,7 @@ Route::post('api/:version/token/user', 'api/:version.Token/getToken');
 
 // product-category
 Route::get('api/:version/product_category/all','api/:version.ProductCategory/get');
-Route::get('api/:version/product_category/all','api/:version.ProductCategory/get');
+Route::post('api/:version/product_category/create', 'api/:version.ProductCategory/create');
 
 // product
 Route::get('api/:version/product/:id', 'api/:version.Product/getOne', [], ['id' => '\d+']);
