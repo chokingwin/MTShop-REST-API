@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50715
 File Encoding         : 65001
 
-Date: 2017-11-12 17:17:09
+Date: 2017-11-13 20:49:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,11 +27,26 @@ CREATE TABLE `image` (
   `update_time` int(11) DEFAULT NULL,
   `delete_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='图片总表';
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COMMENT='图片总表';
 
 -- ----------------------------
 -- Records of image
 -- ----------------------------
+INSERT INTO `image` VALUES ('1', 'http://image.smartisanos.cn/resource/ec6dafed3c75ab3d65c062bc4a28624a.png?x-oss-process=image/resize,w_1220/indexcrop,y_1440,i_0/quality,Q_100/format,webp', '2', null, null, null);
+INSERT INTO `image` VALUES ('2', 'http://image.smartisanos.cn/resource/ec6dafed3c75ab3d65c062bc4a28624a.png?x-oss-process=image/resize,w_1220/indexcrop,y_1440,i_1/quality,Q_100/format,webp', '2', null, null, null);
+INSERT INTO `image` VALUES ('3', 'http://image.smartisanos.cn/resource/ec6dafed3c75ab3d65c062bc4a28624a.png?x-oss-process=image/resize,w_1220/indexcrop,y_1440,i_2/quality,Q_100/format,webp', '2', null, null, null);
+INSERT INTO `image` VALUES ('4', 'http://image.smartisanos.cn/resource/ec6dafed3c75ab3d65c062bc4a28624a.png?x-oss-process=image/resize,w_1220/indexcrop,y_1440,i_3/quality,Q_100/format,webp', '2', null, null, null);
+INSERT INTO `image` VALUES ('5', 'http://image.smartisanos.cn/resource/ec6dafed3c75ab3d65c062bc4a28624a.png?x-oss-process=image/resize,w_1220/indexcrop,y_1440,i_4/quality,Q_100/format,webp', '2', null, null, null);
+INSERT INTO `image` VALUES ('6', 'http://image.smartisanos.cn/resource/ec6dafed3c75ab3d65c062bc4a28624a.png?x-oss-process=image/resize,w_1220/indexcrop,y_1440,i_5/quality,Q_100/format,webp', '2', null, null, null);
+INSERT INTO `image` VALUES ('7', 'http://image.smartisanos.cn/resource/ec6dafed3c75ab3d65c062bc4a28624a.png?x-oss-process=image/resize,w_1220/indexcrop,y_1440,i_6/quality,Q_100/format,webp', '2', null, null, null);
+INSERT INTO `image` VALUES ('8', 'http://image.smartisanos.cn/resource/ec6dafed3c75ab3d65c062bc4a28624a.png?x-oss-process=image/resize,w_1220/indexcrop,y_1440,i_7/quality,Q_100/format,webp', '2', null, null, null);
+INSERT INTO `image` VALUES ('9', 'http://image.smartisanos.cn/resource/ec6dafed3c75ab3d65c062bc4a28624a.png?x-oss-process=image/resize,w_1220/indexcrop,y_1440,i_8/quality,Q_100/format,webp', '2', null, null, null);
+INSERT INTO `image` VALUES ('10', 'http://image.smartisanos.cn/resource/ec6dafed3c75ab3d65c062bc4a28624a.png?x-oss-process=image/resize,w_1220/indexcrop,y_1440,i_9/quality,Q_100/format,webp', '2', null, null, null);
+INSERT INTO `image` VALUES ('11', 'https://resource.smartisan.com/resource/03672f1e13115b2c6f67b2581d7ba348.png?x-oss-process=image/resize,w_54/quality,Q_90/format,webp', '2', null, null, null);
+INSERT INTO `image` VALUES ('12', 'https://resource.smartisan.com/resource/09db0999ff823b4a6b65f13cd53923ce.png?x-oss-process=image/resize,w_54/quality,Q_90/format,webp', '2', null, null, null);
+INSERT INTO `image` VALUES ('13', 'https://resource.smartisan.com/resource/8448848ac4e5e8cb0f79c47724a4d820.png?x-oss-process=image/resize,w_54/quality,Q_90/format,webp', '2', null, null, null);
+INSERT INTO `image` VALUES ('14', 'https://resource.smartisan.com/resource/2e80712b355dc98a962dd2c8af4d9e90.png?x-oss-process=image/resize,w_54/quality,Q_90/format,webp', '2', null, null, null);
+INSERT INTO `image` VALUES ('15', 'https://resource.smartisan.com/resource/97ef985f414c7687ec674194bfcf698c.png?x-oss-process=image/resize,w_54/quality,Q_90/format,webp', '2', null, null, null);
 
 -- ----------------------------
 -- Table structure for product
@@ -84,7 +99,7 @@ CREATE TABLE `product_category` (
   `name` varchar(80) NOT NULL,
   `summary` varchar(50) DEFAULT NULL COMMENT '摘要',
   `category_id` int(11) DEFAULT NULL COMMENT '外键，本商品大类在总店的分类id',
-  `spec` varchar(500) DEFAULT NULL COMMENT '规格配置，json',
+  `spec` text COMMENT '规格配置，json',
   `create_time` int(11) DEFAULT NULL COMMENT '创建时间',
   `update_time` int(11) DEFAULT NULL,
   `delete_time` int(11) DEFAULT NULL,
@@ -94,7 +109,7 @@ CREATE TABLE `product_category` (
 -- ----------------------------
 -- Records of product_category
 -- ----------------------------
-INSERT INTO `product_category` VALUES ('1', 'Smartisan 卫衣 大爆炸', '风格简洁、舒适服帖', null, '[\r\n    \"{\\\"id\\\":3,\\\"name\\\":\\\"颜色\\\",\\\"is_select\\\":true,\\\"count\\\":1,\\\"max\\\":6,\\\"min\\\":1}\",\r\n    \"{\\\"id\\\":5,\\\"name\\\":\\\"尺码\\\",\\\"is_select\\\":true,\\\"count\\\":1,\\\"max\\\":1,\\\"min\\\":1}\",\r\n    \"{\\\"id\\\":6,\\\"name\\\":\\\"数量\\\",\\\"is_select\\\":true,\\\"count\\\":1,\\\"max\\\":2,\\\"min\\\":1}\"\r\n]', null, null, null);
+INSERT INTO `product_category` VALUES ('1', 'Smartisan 卫衣 大爆炸', '风格简洁、舒适服帖', null, '[{\"type\":\"circle\",\"name\":\"\\u989c\\u8272\",\"spec_id\":\"1\",\"value\":[{\"title\":\"\\u9ed1\\u8272\",\"url\":\"http:\\/\\/img01.smartisanos.cn\\/attr\\/v2\\/1000339\\/DDDD334EE9E667503425B40CC9C0320B\\/20X20.jpg\",\"spec_value_id\":\"01\"},{\"title\":\"\\u82b1\\u7070\\u8272\",\"url\":\"http:\\/\\/img01.smartisanos.cn\\/attr\\/v2\\/1000339\\/DAAB83312CD86EA464FDC1CB447B37C4\\/20X20.jpg\",\"spec_value_id\":\"02\"},{\"title\":\"\\u85cf\\u84dd\\u8272\",\"url\":\"http:\\/\\/img01.smartisanos.cn\\/attr\\/v2\\/1000339\\/C7AB93C2D0B8D95951186FDCB809894E\\/20X20.jpg\",\"spec_value_id\":\"03\"}]},{\"type\":\"rectangle\",\"name\":\"\\u5c3a\\u7801\",\"spec_id\":\"2\",\"value\":[{\"title\":\"S\",\"name\":\"S\",\"spec_value_id\":\"01\"},{\"title\":\"M\",\"name\":\"M\",\"spec_value_id\":\"02\"},{\"title\":\"L\",\"name\":\"L\",\"spec_value_id\":\"03\"},{\"title\":\"XL\",\"name\":\"XL\",\"spec_value_id\":\"04\"},{\"title\":\"XXL\",\"name\":\"XXL\",\"spec_value_id\":\"05\"}]},{\"type\":\"num\",\"name\":\"\\u6570\\u91cf\",\"spec_id\":\"3\",\"curNum\":\"1\",\"maxNum\":\"5\",\"minNum\":\"1\"}]', null, null, null);
 
 -- ----------------------------
 -- Table structure for product_category_image
@@ -137,11 +152,11 @@ CREATE TABLE `product_thumb_image` (
 -- ----------------------------
 -- Records of product_thumb_image
 -- ----------------------------
-INSERT INTO `product_thumb_image` VALUES ('1', '1', '1', '0');
-INSERT INTO `product_thumb_image` VALUES ('2', '1', '2', '1');
-INSERT INTO `product_thumb_image` VALUES ('3', '1', '3', '2');
-INSERT INTO `product_thumb_image` VALUES ('4', '1', '4', '3');
-INSERT INTO `product_thumb_image` VALUES ('5', '1', '5', '4');
+INSERT INTO `product_thumb_image` VALUES ('1', '1', '11', '0');
+INSERT INTO `product_thumb_image` VALUES ('2', '1', '12', '1');
+INSERT INTO `product_thumb_image` VALUES ('3', '1', '13', '2');
+INSERT INTO `product_thumb_image` VALUES ('4', '1', '14', '3');
+INSERT INTO `product_thumb_image` VALUES ('5', '1', '15', '4');
 INSERT INTO `product_thumb_image` VALUES ('6', '2', '1', '0');
 INSERT INTO `product_thumb_image` VALUES ('7', '2', '2', '1');
 INSERT INTO `product_thumb_image` VALUES ('8', '2', '3', '2');
