@@ -13,7 +13,7 @@ use think\Route;
 
 Route::post('api/:version/token/app', 'api/:version.Token/getAppToken');
 Route::post('api/:version/token/verify', 'api/:version.Token/verifyToken');
-Route::post('api/:version/token/user', 'api/:version.Token/getToken');
+Route::post('api/:version/token/user', 'api/:version.Token/getUserToken');
 
 // product-category
 Route::get('api/:version/product_category/all','api/:version.ProductCategory/get');

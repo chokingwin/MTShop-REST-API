@@ -21,4 +21,13 @@ class BaseController extends Controller
     {
         Token::needSuperScope();
     }
+
+    protected function successMessage($data = null, $errorCode = 0, $msg = 'success')
+    {
+        return [
+            'data' => $data,
+            'errorCode' => $errorCode,
+            'msg' => $msg
+        ];
+    }
 }
